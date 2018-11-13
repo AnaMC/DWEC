@@ -7,19 +7,30 @@
 (function() {
     var verMas = document.getElementsByClassName("ver-fotos")[0]; //[0] -> verMas es una lista, por lo que tenemos que tratarlo como un array, como solo tenemos 1, la posición es 0
     var fotosUl = document.getElementsByClassName("fotos")[0];
+    var tour = document.getElementById("tours");
+    var btnReserva = document.getElementsByTagName("button");
     
-    var btnReserva = document.getElementsByClassName("book");
-
+    for(var i = 0; 1 < btnReserva.length; i++){
+        btnReserva[i].addEventListener('click', reserva);
+    }    
+    
     function visibilidad() {
         fotosUl.classList.toggle("fotos");
     }
 
-    function llamada(e){
-         btnReserva.disabled = true;
-         btnReserva.innerText = "Llame al 902 30 30 30 para reservar este viaje";
-         btnReserva.classList.add('telefono');
+    function reserva(e){
+        var btn = e.currentTarget;
+        btn.classList.add('telefono');
+        btn.disabled = true;
+        btn.innerText = "Llame al 902 30 30 30 para reservar este viaje";
     }
 
+    // function precio(e){
+    //     var campoNoches = e.target.value;
+    //     var precio = 
+    // }
+
     verMas.addEventListener('click', visibilidad);
-    btnReserva.addEventListener('click', llamada);
+    // tour.addEventListener('change', precio);
+    
 })();
