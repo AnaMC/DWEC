@@ -1,0 +1,39 @@
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.esconder{
+    display: none;
+}
+
+.texto{
+    width: 500px;
+    display: block;
+    float: left;
+    font-family: sans-serif;
+}
+
+.imagen{
+    display: block;
+    float: right;
+}
+
+.imagen img{
+    width: 500px;
+}
+
+h1{
+    color: #19a8a8;
+}
+
+ h2.mas {
+     background: url(img/mas.jpg) no-repeat left center;
+ }
+ h2.menos {
+     background: url(img/menos.jpg) no-repeat left center;
+ }
+
+#playas, #montañas{
+    padding: 20px;
+}
