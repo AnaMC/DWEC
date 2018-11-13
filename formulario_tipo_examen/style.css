@@ -1,0 +1,54 @@
+.wrapper{
+    font-family: sans-serif;
+}
+
+#fecha{
+    float: right;
+}
+
+fieldset{
+    width: 20%;
+    border-color: 1px solid #c1bebe;
+}
+
+legend{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+label{
+    background-color: #74dddd;
+}
+
+h1{
+    text-align: center;
+}
+
+#ayuda, #disponibles{
+    color: #818181;
+}
+
+textarea{
+    resize: none;
+}
+
+#tiempo{
+    color: #32913d;
+}
+
+#crono{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#sticker{
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+@font-face {
+    font-family: "Max";
+    src: url("../tipo/Maxwell.ttf");
+}

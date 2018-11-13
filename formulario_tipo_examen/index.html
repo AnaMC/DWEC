@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<!--
+· Más de una respuesta: (varios checkbox)
+· Una respuesta a elegir de una lista
+El botón Corrección hará que se muestre el porcentaje de aciertos
+-->
+
+<html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exámen Javascript</title>
+    <meta name="description" content="Ejercicio de Javascript, validación de un examen">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="test.png" />
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <form name="form" id="form">
+            <p id="fecha">Fecha: </p>
+            <h1>Exámen Javascript</h1>
+            <fieldset>
+                <legend>
+                    <h3> PUNTUACIÓN </h3>
+                </legend>
+                <span id="totales"> Preguntas totales: </span>
+                <br>
+                <span id="contestadas"> Contestadas: </span>
+                <br>
+                <span id="restantes"> Restantes: </span>
+                <br>
+                <span id="acertadas"> Acertadas: </span>
+                <br>
+                <span id="erroneas"> Erroneas: </span>
+                <br>
+                <span id="intentos"> Intentos: </span>
+                <br>
+                <span id="porcentajeAciertos"> Porcentaje de aciertos: </span>
+                <br>
+                <span id="tiempo"> Tiempo invertido: <p id="crono">  </p></span>
+
+            </fieldset>
+            <br><br>
+
+            <label for="p1">1. En JavaScript, ¿cómo se llama el método que comprueba una expresión regular y devuelve true si se cumple?</label>
+            <br><br>
+            <input type="radio" name="p1" value="check"> check()<br>
+            <input type="radio" name="p1" value="exec"> exec() <br>
+            <input type="radio" name="p1" value="test"> test()<br>
+            <br><br>
+
+            <label for="p2">2. En JavaScript, ¿cómo se inserta un comentario que ocupa una línea?</label>
+            <br><br>
+            <input type="radio" name="p2" value="#"> # Comentario <br>
+            <input type="radio" name="p2" value="//"> // Comentario <br>
+            <input type="radio" name="p2" value="'"> ' Comentario <br>
+            <br><br>
+
+            <label for="p2">3. En JavaScript, ¿Es correcto agregar "defer" cuando se coloca la etiqueta script en el head? <p id="ayuda">** Respuesta de Si o No</p> </label>
+
+            <textarea id="textareaSN" name="textareaSN" rows="1" cols="5" maxlength="2"></textarea>
+            <br><br>
+
+            <label for="p4">4. ¿Dónde se puede insertar código JavaScript en un documento HTML?</label>
+            <br><br>
+            <input type="checkbox" name="p4" value="head"> &lt;head&gt; &lt;/head&gt; <br>
+            <input type="checkbox" name="p4" value="footer"> &lt;footer&gt; &lt;/footer&gt; <br>
+            <input type="checkbox" name="p4" value="ninguna"> &lt;style&gt; &lt;/style&gt; <br>
+            <br><br>
+
+            <label for="p5">5. El DOM representa una página web como: </label>
+            <br><br>
+            <input type="radio" name="p5" value="arbol"> Un árbol <br>
+            <input type="radio" name="p5" value="lista"> Una lista <br>
+            <input type="radio" name="p5" value="ninguna"> Ninguna de las respuestas anteriores es correcta <br>
+            <br><br>
+
+            <label for="p6">6.En JavaScript, el operador para concatenar cadenas es: </label>
+            <br><br>
+            <select id="lista">
+               <option value="defecto"> Seleccionar una </option> 
+               <option value="porcen">" % " </option> 
+               <option value="mas">" + " </option> 
+               <option value="punto">" . " </option>
+            </select>
+            <br><br>
+            
+            <label for="p7">7. En JavaScript, ¿cómo se redondea el número 7.25 al entero más cercano? </label>
+            <br><br>
+            <input type="radio" name="p7" value="Math.round"> Math.round(7.25)  <br>
+            <input type="radio" name="p7" value="Math.rnd"> Math.rnd(7.25)  <br>
+            <input type="radio" name="p7" value="rnd"> rnd(7.25)  <br>
+            <br><br>
+            
+            <label for="p8">8. En JavaScript, ¿qué función se emplea para convertir una cadena a minúsculas? </label>
+            <br><br>
+            <input type="radio" name="p8" value="lower"> lower() <br>
+            <input type="radio" name="p8" value="lowerCase"> lowerCase() <br>
+            <input type="radio" name="p8" value="toLowerCase"> toLowerCase() <br>
+            <br><br>
+            
+            <label for="p9">9. ¿Qué función existe en el DOM</label>
+            <br><br>
+            <input type="radio" name="p9" value="id"> getElementsById() <br>
+            <input type="radio" name="p9" value="name"> getElementByName()  <br>
+            <input type="radio" name="p9" value="tag"> getElementsByTagName() <br>
+            <br><br>
+            
+            <label for="p10">10. En el navegador web, para escribir algo en la consola se emplea</label>
+            <br><br>
+            <input type="radio" name="p10" value="append"> console.append() <br>
+            <input type="radio" name="p10" value="log"> console.log() <br>
+            <input type="radio" name="p10" value="print"> console.print() <br>
+            <input type="radio" name="p10" value="write"> console.write()  <br>
+            <br><br>
+
+            <span id="comentario"> ¿Has tenido alguna dificultad al realizar el exámen? </span>
+            <br><br>
+            <textarea id="textareaComent" name="textareaComent" rows="5" cols="40" maxlength="100"></textarea>
+            <br>
+            <span id="disponibles"> Caracteres disponibles: 100</span>
+            <br><br>
+
+            <input type="submit" value="Corregir" id="enviar" />
+            <input type="reset" value="Borrar" id="borrar" />
+        </form>
+    </div>
+</body>
+<footer>
+    <script type="text/javascript" src="script.js"></script>
+</footer>
+
+</html>
