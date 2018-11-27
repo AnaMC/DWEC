@@ -54,9 +54,7 @@ class Libros extends Media {
     contruct(autor, titulo, paginas, prestado, valoraciones) {
         super(titulo, prestado, valoraciones); // Las que hereda -> con super;
         this.autor = autor;
-        this.titulo = titulo;
         this.paginas = paginas;
-        this.prestado = prestado;
     }
 }
 
