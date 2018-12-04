@@ -26,11 +26,14 @@ var formulario = document.getElementById("formulario");
             let emailForm = this.formulario.querySelector('input[type="email"]');
         }
         
+        get sexo(){
+            let sexoForm = this.formulario.querySelector('input[type="radio"]');
+        }
+        
         //Funciones de comprobacion
 
         /*Estatico para que no nos obligue a usar el constructor para utilizar el méto, de esta forma podemos utilizarlo sin
         pasarle el formulario(Sin crear el objeto con new.....) */
-        
         
         //Longitud de un campo
         
@@ -69,6 +72,16 @@ var formulario = document.getElementById("formulario");
             return r;
         }
         
+        static valSexo() {
+            //RECORRER
+            var genero = this.sexoForm;
+            var r = false;
+
+            if (genero.checked === true) {
+                r = true;
+            }
+        }
+        
         static comprobar (){
             let longitud = longitud(3, 8, null);
             let email = email();
@@ -79,7 +92,6 @@ var formulario = document.getElementById("formulario");
                 alert('Compruebe los campos');
             }
         }
-        
     }
     
     var objetoValidar = new Validar(formulario);
