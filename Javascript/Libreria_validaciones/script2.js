@@ -83,8 +83,9 @@ var formulario = document.getElementById("formulario");
         }
         
         static comprobar (){
-            let longitud = longitud(3, 8, null);
-            let email = email();
+            let longitud = valLongitud(3, 8, null);
+            let email = valEmail();
+            let genero = valSexo();
             
             if(longitud && email){
                 formulario.submit;
