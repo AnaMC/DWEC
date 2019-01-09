@@ -1,0 +1,15 @@
+.warapper{
+    width: 100%;
+    margin: 0 auto;
+}
+
+h3{
+    text-decoration: underline;
+    font-family: sans-serif;
+}
+
+.campos{
+    width: 400px;
+    margin-left: 30%;
+    margin-top: 5%;
+}
