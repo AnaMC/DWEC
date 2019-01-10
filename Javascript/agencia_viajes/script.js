@@ -27,7 +27,6 @@
 
     // function precio(e){
     //     var campoNoches = e.target.value;
-    //     var precio = 
     // }
 
     verMas.addEventListener('click', visibilidad);

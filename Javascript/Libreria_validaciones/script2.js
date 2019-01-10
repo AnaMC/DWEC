@@ -8,7 +8,7 @@ var formulario = document.getElementById("formulario");
         constructor(formulario) {
             this.formulario = formulario;
             //Para agregarle el manejador de eventos al formulario utilizamos una función flecha, de este modo le decimos
-            // "esto va aquí tonto" :P 
+            // "esto va aquí"
             formulario.addEventListener('submit', (e)=>{
                 e.preventDefault();
                 this.comprobar(e);
@@ -32,7 +32,7 @@ var formulario = document.getElementById("formulario");
         
         //Funciones de comprobacion
 
-        /*Estatico para que no nos obligue a usar el constructor para utilizar el méto, de esta forma podemos utilizarlo sin
+        /*Estatico para que no nos obligue a usar el constructor para utilizar el metodo, de esta forma podemos utilizarlo sin
         pasarle el formulario(Sin crear el objeto con new.....) */
         
         //Longitud de un campo
