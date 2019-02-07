@@ -4,6 +4,10 @@
 
 // use usuarios\app\App;
 
+/*
+    El constructor debe tener al menos 3 parametros: host, usuario yclave
+*/
+
 class Database {
     
     //Atributos
