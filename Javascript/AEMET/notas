@@ -1,0 +1,65 @@
+
+//  FR
+
+//  var request = new XMLHttpRequest();
+// request.open("GET",url);
+// request.onload = function(){
+// 	if(request.status == 200){
+// 		var obj = JSON.parse(request.responseText); //si esta todo correcto paso la solicitud a JSOn
+
+// 		segundafuncion(obj)
+
+// 	}
+// }
+
+//  request.send(null);
+
+//  function fincionDos(obj){
+//  	var request2 = new XMLHttpRequest();
+// request2.open("GET",obj.datos); // Abro peticion y le digo que es de tipo get y le paso mi url 
+
+// request2.onload = function(){
+
+// 	if(request2.status==200){
+// 		var obj2 = JSON.parse(request2.responseText);
+// 		pintar(obj2);
+// 	}							
+
+//  	}
+// request2.send(null);
+//  }
+
+// function pintar(obj2){
+// 	var body = document.getElementById('body');
+
+// 	obj2[0].prediccion.dia.forEach(function(elemento){
+// 		$('#body').append(`<table>
+// 		<tr>
+// 			<td>Dia</td>
+// 			<td>Probalidad Lluvia</td>
+// 			<td>Humedad Relativa</td>
+// 			<td>Viento</td>
+// 			<td>Temperatuda</td>
+// 		</tr>
+// 		<tr>
+//  		<td>	
+// 				${elemento.fecha}
+//  		</td>
+//  		<td>	
+// 				${elemento.probPrecipitacion[0].value}
+//  		</td>
+//  		<td>	
+// 				max: ${elemento.humedadRelativa.maxima}- min ${elemento.humedadRelativa.minima}
+//  		</td>
+//  		<td>	
+// 				${elemento.viento[0].velocidad}
+//  		</td>
+//  		<td>	
+// 				min:${elemento.temperatura.minima}-max${elemento.temperatura.maxima}
+//  		</td>
+
+// 		</tr>
+// 		</table>`)
+// 	});
+
+// }

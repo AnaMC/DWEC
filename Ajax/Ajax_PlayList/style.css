@@ -1,0 +1,56 @@
+@font-face {
+    font-family: shreeDevangari;
+    src: url(tipography/ShreeDeevangari.ttf);
+} 
+
+body{
+    font-family: sans-serif;
+}
+
+#trash{
+    margin-left: 10%;
+}
+
+#star{
+    width: 16px;
+    height: 16px;
+}
+
+#error{
+    color: red;
+}
+
+.titulo{
+    text-align: center;
+    color: green;
+}
+
+.encontrado{
+    background-color: yellow;
+}
+
+button{
+    font-family: shreeDevangari;
+    border: 1px solid #88b2f7;
+    background-color: #88b2f7;
+    color: white;
+}
+
+#anadir {
+    background-color: #88b2f7;
+    margin: 1px solid red;
+    border: 1px solid #88b2f7;
+    color: white;
+    padding: 4px;
+}
+
+input{
+    background-color: #cecccc;
+    border: 1px solid #cecccc;
+    padding-left: 3px;
+}
+
+#ulCanciones li{
+    list-style:none;
+    padding-bottom: 2px;
+}
