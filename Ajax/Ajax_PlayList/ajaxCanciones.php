@@ -1,8 +1,6 @@
 <?php
 
-    require ('Reader.php');
-    require ('Session.php');
-    require ('Cancion.php');
+    require 'classes/Autoload.php';
 
     //Le pasamos un Objeto Canción para que lo vea (Vamos a hacer una introspeccion)
     // $cancion = Reader::readObject('Cancion');

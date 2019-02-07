@@ -1,8 +1,8 @@
 <?php
 
-namespace usuarios\database;
+// namespace usuarios\database;
 
-use usuarios\app\App;
+// use usuarios\app\App;
 
 class Database {
     
