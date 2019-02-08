@@ -5,11 +5,12 @@
     
     $('#playList').on('submit', function(e){
         e.preventDefault();
-        //Datos de los input a Json para
+        // Datos de los input a Json para
         var parametros = {
             titulo      : $('#titulo').val().trim(),
             interprete       : $('#interprete').val().trim(),
-            tipo       : $('#tipo').val().trim()
+            tipo       : $('#tipo').val().trim(),
+            accion     : 'insertar'
         };
         miAjax(url, parametros, "POST");
     })
@@ -20,9 +21,9 @@
     
     // Para enviar y poder pedir datos 
   
-  // Mediante los parametros definimos que llamada Ajax queremos hacer : UR, , DATOS, TIPO de conexion (Get/Post)  Y el tipo de los datos (Aurora -> con JSon) 
+    // Mediante los parametros definimos que llamada Ajax queremos hacer : UR, , DATOS, TIPO de conexion (Get/Post)  Y el tipo de los datos (Aurora -> con JSon) 
    
-   //Le podemos pasar la gungon de callback
+   // Le podemos pasar la función de callback
     var miAjax = function(url, datos, type) {
         $.ajax({
             url: url,
@@ -34,9 +35,11 @@
         // Cuando tiene y llega la respuesta de la consulta de ejecuta done, que procesa los datos que le llegan
         .done(function( json ) {
             
-            // callBack(json);
-            
-            mostrar(json.resultado);
+        // callBack(json);
+            //Si respuesta es = 1 es xq se ha cambiado la bd, entonces lo listamos
+            if(json.resultado.respuesta = 1){
+                mostrar(json.resultado.canciones);    
+            }
         })
         // Se ejecuta si la consuta falla y no obtiene respuesta
         .fail(function( xhr, status, errorThrown ) {
@@ -66,8 +69,12 @@
         //Para que sea mas eficiente
         $('#ulCanciones').append(resultado);
     };
-
-
- 
     
+    var parametros = {
+            titulo: '',
+            interprete: '',
+            tipo: '',
+            accion: 'listar'
+        };
+    miAjax(url, parametros, 'post');
 })();

@@ -2,19 +2,18 @@ create database playList
   default character set utf8
   collate utf8_general_ci;
   
-create user usuariobd@localhost
+create user playlist@localhost
   identified by 'clavebd';
 
-grant all
-  on nombrebd.*
-  to usuariobd@localhost;
+grant allon playList.* to playlist@localhost;
 
 flush privileges;
 
+use playList;
+
 create table cancion (
-    id bigint not null auto_increment primary key,
-    titulo varchar(50) not null,
-    interprete varchar(50) not null,
+    titulo varchar(50) not null,  -- Unique    \__ no hay dos titulos iguales con el mismo intérprete
+    interprete varchar(50) not null, --Unique  /
     genero varchar(30) not null
 ) engine = innodb
   character set utf8

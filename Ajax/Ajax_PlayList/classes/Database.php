@@ -5,7 +5,7 @@
 // use usuarios\app\App;
 
 /*
-    El constructor debe tener al menos 3 parametros: host, usuario yclave
+    El constructor debe tener al menos 3 parametros: host, usuario y clave
 */
 
 class Database {
@@ -20,19 +20,11 @@ class Database {
     
     // Constructor
     function __construct($user = null, $password = null, $database = null, $host='localhost') {
-        $this->user = $user;
-        $this->password = $password;
-        $this->database = $database;
+        $this->user = 'playlist';
+        $this->password = 'clavebd';
+        $this->database = 'playList';
         $this->host = $host;
-        
-        if($user === null){
-            $this->user = App::USER;
-            $this->password = App::PASSWORD;
-            $this->database = App::DATABASE;
-            $this->host = App::HOST;
-        }
     }
-    
     
     function connect(){
         $result = false;
@@ -54,7 +46,6 @@ class Database {
         return $result;
     }
 
-
     function close(){
         $this->connection = null;
     }
@@ -74,6 +65,7 @@ class Database {
         foreach($data as $nombreParametro => $valorParametro) {
             $this->sentence->bindValue($nombreParametro, $valorParametro);
         }
+        //Si se hace la inserción devuelve true/false
         return $this->sentence->execute();
     }
 }

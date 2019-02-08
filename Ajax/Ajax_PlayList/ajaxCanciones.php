@@ -7,47 +7,85 @@
     $titulo = Reader::read('titulo');
     $tipo = Reader::read('tipo');
     $interprete = Reader::read('interprete');
+    //Recogemos la acción para saber si vamos a añadir, borrar....
+    $accion = Reader::read('accion');
     $cancion = new Cancion($titulo, $interprete, $tipo);
     $sesion = new Session ('sesion');
      
-    //Consultas sql
-    $sqlInsert = 'insert into cancion values (null, :titulo, :interpte, :genero)';
-    $sqlDelete = 'delete from cancion where id = :id';
+    // //Consultas sql
+    $sqlInsert = 'insert into cancion values ( :titulo, :interprete, :tipo)';
+    $sqlDelete = 'delete from cancion where titulo = :titulo, interprete = :interprete';
+    $sqlGetAll = 'select * from cancion order by titulo';
+    $sqlEdit = ' update cancion set titulo = :titulo, interprete = :interprete, tipo = :tipo where titulo = :titulo, interprete = :interprete';
     $dataBase = new Database();
-    $resultado = 0;    
+    //
+    $resultado = array();
+    $resultado['respuesta'] = 0;
+    $resultado['canciones'] = array();
+    
     //En listaCanciones vamos a guardar las canciones que hay o habrá en la sesión
     $listaCanciones = $sesion->get('canciones');
     
-    //Comprobar conesxion BD
-    if ($db->connect()) {
-        $conexion = $dataBase->getConnection();
-        // 
-        // 
-    } else {
-        echo 'Conexión fallida';
-        //Y nos vamos
-        exit();
+    switch($accion) {
+        case 'insertar':
+            //Comprobar conexion BD
+            if ($dataBase->connect()) {
+                 $cancion->get(); 
+                 // Le pasamos el objeto canción como un array asociativo para preparar la sentencia (get)
+                 $op = $dataBase->execute($sqlInsert, $cancion->get());
+                 
+                 if($op === true){
+                     $resultado['respuesta'] = 1;
+                 }  
+                
+            }
+            break;
+        case 'borrar':
+            if ($dataBase->connect()) {
+                 $cancion->get();
+                 echo var_dump($cancion->get());
+                 $op = $dataBase->execute($sqlDelete, $cancion->get());
+                 
+                 if($op === true){
+                     $resultado['respuesta'] = 1;
+                 }  
+            }
+            
+            break;
+        case 'editar':
+            if ($dataBase->connect()) {
+                 $cancion->get(); 
+                 $op = $dataBase->execute($sqlEdit, $cancion->get());
+                 
+                 if($op === true){
+                     $resultado['respuesta'] = 1;
+                 }  
+                
+            }
+            break;
+         case 'listar':
+             $resultado['respuesta'] = 1;
+             break;
     }
     
-    if($listaCanciones === null){
-        //Si no existe creamos el array
-        $listaCanciones = array();
-        //Y metemos la cancion (xq sabemos que no está)
-        $listaCanciones[] = $cancion->get(); 
-    }else{
-        $repetido = false;
-        
-        //in_array -> buscamos para saber si está
-        //Sort -> ordenar
-        if(!$repetido){
-            //Si no esta repetida la metemos
-            $listaCanciones[] = $cancion->get();
-        }
-    }
-    //Guardar la lista en la sesion
-                // nombre   ,   valor
-    $sesion->set('canciones', $listaCanciones);
+     //Siempre debemos de volver a comprobar si la bd esta conectada, si respuesta = 1 significa que ha habido un cambio en la BD
+     if ($resultado['respuesta'] === 1  && $dataBase->connect()) {
+         $canciones = [];
+         if($dataBase->execute($sqlGetAll)){
+            while ($fila = $dataBase->getSentence()->fetch()){
+                // Como  $fila = $dataBase ^ significa que hay contenido en la BD (que es un array asciativo) entonces 
+                // le metemos a nuestra cancion el contenido utilizando nuestro super trait que lo hace automático
+                // $cancion->settitulo($fila['titulo']);
+                // $cancion->settipo($fila['tipo']);
+                // $cancion->setinterprete($fila['interprete']);
+                // echo var_dump($cancion);
+                $cancion->set($fila);
+                $canciones[] = $cancion->get();
+            }
+         }
+         $resultado['canciones'] = $canciones;
+     }    
+    //Pasamos el resultado a Json
+    echo json_encode(['resultado' => $resultado]);
     
-    //Pasamos resultado a Json
-    echo json_encode(['resultado' => $listaCanciones]);
 ?>
