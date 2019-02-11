@@ -28,14 +28,13 @@
 		<input type="submit" id="anadir" value='Añadir Canción'>
 	</form>
 	<br>
-    <input type="text" id="busqueda" placeholder="Buscar una canción">
-    <button id="buscar">Buscar</button>
     <br>
-    <span id='error'></span>
     <br>
-	<ul id="ulCanciones">
-	    <!-- Creamos el <li></li> desde el script -->
 	</ul>
+	<ul id="ulCanciones">
+	     <!--Creamos el <li></li> desde el script -->
+	</ul>
+	
 	<script src="script.js"></script>
 </body>
 

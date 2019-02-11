@@ -1,11 +1,11 @@
 (function() {
     
-    //ruta de la peticion
+    //Ruta de la peticion Ajax
     var url = "https://dwec-anamc.c9users.io/Ajax/Ajax_PlayList/ajaxCanciones.php";
     
     $('#playList').on('submit', function(e){
         e.preventDefault();
-        // Datos de los input a Json para
+        // Objeto javascript para Json
         var parametros = {
             titulo      : $('#titulo').val().trim(),
             interprete       : $('#interprete').val().trim(),
@@ -14,7 +14,7 @@
         };
         miAjax(url, parametros, "POST");
     })
-    
+
     // Con parse "traducimos" el objeto JSON
     // "Traduceme el texto de la peción que está en JSON (está en formato string)"
     //  var objetoJson = JSON.parse(peticion.responseText); 
@@ -27,7 +27,7 @@
     var miAjax = function(url, datos, type) {
         $.ajax({
             url: url,
-            data: datos, 
+            data: datos, //ya Convertido a Json (por ser la funcion de ajax Jquery)
             type: type,
             dataType : 'json',
         })
@@ -46,20 +46,22 @@
             console.log('petición fallida');
         })
         .always(function( xhr, status ) {
-            console.log('ajax always');
+            console.log('Petición realizada');
         });
     }
     
-    //Le pasamos el objeto JSON obtenido
+    //Le pasamos el objeto JSON obtenido que es un array de canciones
     function mostrar (json) {
         //Sacar el valor del campo 
         let resultado = ' ';
-        
+         $('#ulCanciones').children().remove();
+                           // indice , valor
         $.each(json, function(cancion , valor) {
         console.log(cancion, valor);
         
-          $('#ulCanciones').children().remove();
-          resultado += '<li> Titulo: ' + valor.titulo + ' ,Intérprete: '+ valor.interprete + ' ,Género: ' + valor.tipo + '</li>';
+          //data-nombre atributo para guardad el nombre para poder recogerlo en la peticion de y no tratamos el string
+          // APUNTES CARMELO
+           resultado += '<li class="estilo" data-titulo="' + valor.titulo + '" data-interprete="' + valor.interprete + '">' + valor.titulo + ' / '  +  valor.interprete + ' / ' + valor.tipo + ' ' +'<a href = "#" class="remove">Eliminar </a> </li>';
           
            //A la lista de canciones se le suma la que se le introduce
            // nuevaCancion += <li>json.titulo</li>
@@ -68,8 +70,22 @@
         });
         //Para que sea mas eficiente
         $('#ulCanciones').append(resultado);
+        
+        //Pasar solo lo que necesitamos
+        $('.remove').on('click', function(e){
+            
+            e.preventDefault();
+            
+            var parametros = {
+                titulo      :     $(e.currentTarget).parent().attr('data-titulo'),
+                interprete  :     $(e.currentTarget).parent().attr('data-interprete'),
+                accion      :     'delete'
+            };
+            miAjax(url, parametros, "POST");  
+        });
     };
     
+//Se ejecuta la primera vez que se abre la página ¡No tiene evento!
     var parametros = {
             titulo: '',
             interprete: '',

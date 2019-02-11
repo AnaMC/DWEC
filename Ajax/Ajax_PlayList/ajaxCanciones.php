@@ -10,60 +10,45 @@
     //Recogemos la acción para saber si vamos a añadir, borrar....
     $accion = Reader::read('accion');
     $cancion = new Cancion($titulo, $interprete, $tipo);
-    $sesion = new Session ('sesion');
-     
-    // //Consultas sql
+   
+    //Consultas sql
     $sqlInsert = 'insert into cancion values ( :titulo, :interprete, :tipo)';
-    $sqlDelete = 'delete from cancion where titulo = :titulo, interprete = :interprete';
+    $sqlDelete = 'delete from cancion where titulo = :titulo and interprete = :interprete';
     $sqlGetAll = 'select * from cancion order by titulo';
-    $sqlEdit = ' update cancion set titulo = :titulo, interprete = :interprete, tipo = :tipo where titulo = :titulo, interprete = :interprete';
     $dataBase = new Database();
     //
     $resultado = array();
+
     $resultado['respuesta'] = 0;
     $resultado['canciones'] = array();
-    
-    //En listaCanciones vamos a guardar las canciones que hay o habrá en la sesión
-    $listaCanciones = $sesion->get('canciones');
     
     switch($accion) {
         case 'insertar':
             //Comprobar conexion BD
             if ($dataBase->connect()) {
-                 $cancion->get(); 
                  // Le pasamos el objeto canción como un array asociativo para preparar la sentencia (get)
                  $op = $dataBase->execute($sqlInsert, $cancion->get());
                  
                  if($op === true){
                      $resultado['respuesta'] = 1;
-                 }  
-                
+                 } 
             }
             break;
-        case 'borrar':
-            if ($dataBase->connect()) {
-                 $cancion->get();
-                 echo var_dump($cancion->get());
-                 $op = $dataBase->execute($sqlDelete, $cancion->get());
-                 
-                 if($op === true){
-                     $resultado['respuesta'] = 1;
-                 }  
-            }
             
-            break;
-        case 'editar':
+        case 'delete':
             if ($dataBase->connect()) {
-                 $cancion->get(); 
-                 $op = $dataBase->execute($sqlEdit, $cancion->get());
+                $datos = $cancion->get();
+                //para tener solo titulo e interprete y no pasar mas datos de los necesarios
+                unset($datos['tipo']);
+                 $op = $dataBase->execute($sqlDelete, $datos);
                  
                  if($op === true){
                      $resultado['respuesta'] = 1;
                  }  
-                
             }
             break;
-         case 'listar':
+            
+        case 'listar':
              $resultado['respuesta'] = 1;
              break;
     }
@@ -87,5 +72,4 @@
      }    
     //Pasamos el resultado a Json
     echo json_encode(['resultado' => $resultado]);
-    
 ?>

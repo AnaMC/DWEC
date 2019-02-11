@@ -22,7 +22,7 @@ body{
 
 .titulo{
     text-align: center;
-    color: green;
+    color: #6168cc;
 }
 
 .encontrado{
@@ -41,16 +41,26 @@ button{
     margin: 1px solid red;
     border: 1px solid #88b2f7;
     color: white;
-    padding: 4px;
+    padding: 2px;
 }
 
 input{
     background-color: #cecccc;
     border: 1px solid #cecccc;
     padding-left: 3px;
+    padding: 2px;
 }
 
-#ulCanciones li{
-    list-style:none;
-    padding-bottom: 2px;
+.remove{
+    text-decoration: none;
+    background-color: #88b2f7;
+    margin: 10px solid red;
+    border: 1px solid #88b2f7;
+    color: white;
+    padding: 2px;
+    margin-left: 17px;
+}
+
+.estilo{
+    margin:20px;
 }
