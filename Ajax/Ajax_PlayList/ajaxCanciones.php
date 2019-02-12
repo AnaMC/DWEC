@@ -2,8 +2,6 @@
 
     require 'classes/Autoload.php';
 
-    //Le pasamos un Objeto Canción para que lo vea (Vamos a hacer una introspeccion)
-    // $cancion = Reader::readObject('Cancion');
     $titulo = Reader::read('titulo');
     $tipo = Reader::read('tipo');
     $interprete = Reader::read('interprete');
@@ -16,7 +14,7 @@
     $sqlDelete = 'delete from cancion where titulo = :titulo and interprete = :interprete';
     $sqlGetAll = 'select * from cancion order by titulo';
     $dataBase = new Database();
-    //
+    
     $resultado = array();
 
     $resultado['respuesta'] = 0;
@@ -38,7 +36,7 @@
         case 'delete':
             if ($dataBase->connect()) {
                 $datos = $cancion->get();
-                //para tener solo titulo e interprete y no pasar mas datos de los necesarios
+                //para tener solo titulo e interprete y no pasar mas datos de los necesarios en la sentencia
                 unset($datos['tipo']);
                  $op = $dataBase->execute($sqlDelete, $datos);
                  
@@ -60,10 +58,6 @@
             while ($fila = $dataBase->getSentence()->fetch()){
                 // Como  $fila = $dataBase ^ significa que hay contenido en la BD (que es un array asciativo) entonces 
                 // le metemos a nuestra cancion el contenido utilizando nuestro super trait que lo hace automático
-                // $cancion->settitulo($fila['titulo']);
-                // $cancion->settipo($fila['tipo']);
-                // $cancion->setinterprete($fila['interprete']);
-                // echo var_dump($cancion);
                 $cancion->set($fila);
                 $canciones[] = $cancion->get();
             }
