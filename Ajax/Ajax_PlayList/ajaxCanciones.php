@@ -29,7 +29,9 @@
                  
                  if($op === true){
                      $resultado['respuesta'] = 1;
-                 } 
+                 } else{
+                     $resultado['respuesta'] = 0;
+                 }
             }
             break;
             
