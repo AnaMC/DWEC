@@ -54,7 +54,8 @@
     }
     
      //Siempre debemos de volver a comprobar si la bd esta conectada, si respuesta = 1 significa que ha habido un cambio en la BD
-     if ($resultado['respuesta'] === 1  && $dataBase->connect()) {
+     //quitado $resultado['respuesta'] === 1  &&
+     if ( $dataBase->connect()) {
          $canciones = [];
          if($dataBase->execute($sqlGetAll)){
             while ($fila = $dataBase->getSentence()->fetch()){
@@ -65,6 +66,7 @@
             }
          }
          $resultado['canciones'] = $canciones;
+
      }    
     //Pasamos el resultado a Json
     echo json_encode(['resultado' => $resultado]);

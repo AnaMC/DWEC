@@ -64,3 +64,8 @@ input{
 .estilo{
     margin:20px;
 }
+
+#logo{
+    height: 40px;
+    /*width: 20px;*/
+}

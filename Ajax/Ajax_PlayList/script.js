@@ -52,11 +52,11 @@
         // indice , valor
         $.each(json, function(cancion, valor) {
             console.log(cancion, valor);
-
+            
             //data-nombre atributo para guardar el nombre poder recogerlo en la peticion y no li tratamos como string
             // APUNTES CARMELO
 
-            resultado += '<li class="estilo" data-titulo="' + valor.titulo + '" data-interprete="' + valor.interprete + '">' + valor.titulo + ' / ' + valor.interprete + ' / ' + valor.tipo + ' ' + '<a href = "#" class="remove">Eliminar </a> </li>';
+            resultado += '<li class="estilo" data-titulo="' + valor.titulo + '" data-interprete="' + valor.interprete + '">' + valor.titulo + ' / ' + valor.interprete + ' / ' + valor.tipo + ' ' + '<a href = "#" class="remove">Eliminar</a> </li>';
             // ^ A la lista de canciones se le suma la que se le introduce
         });
 
