@@ -1,0 +1,60 @@
+.wrapper{
+    font-family: sans-serif;
+    display: flex;
+    justify-content:center;
+    align-content: center;
+}
+.wrapper-envio{
+    background-color: #7094d4;
+    width: 600px;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10%;
+    height: 225px;
+}
+
+.wrapper-envio h1{
+    padding-top: 50px;
+}
+
+.volver{
+    display: block;
+    padding: 10px;
+    width: 50px;
+    margin: 0 auto;
+    background-color: white;
+    color: #7094d4;
+    text-decoration: none;
+    color: #7094d4;    
+}
+
+#enviar {
+    border: 0px;
+    background-color: #4868f7;
+    color: white;
+    padding: 5px 67px;
+    border-radius: 3px;
+}
+
+button{
+    border: 0px;
+    background-color: #4868f7;
+    color: white;
+    padding: 5px 59px;
+    border-radius: 3px;
+}
+
+.mensaje, .mensaje2, .mensaje3 {
+    color: red;
+    padding-left: 10px;
+}
+
+
+
+
+
+
+
+

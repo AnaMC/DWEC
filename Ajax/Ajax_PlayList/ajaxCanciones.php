@@ -54,7 +54,7 @@
     }
     
      //Siempre debemos de volver a comprobar si la bd esta conectada, si respuesta = 1 significa que ha habido un cambio en la BD
-     //quitado $resultado['respuesta'] === 1  &&
+     //quitado $resultado['respuesta'] === 1  &
      if ( $dataBase->connect()) {
          $canciones = [];
          if($dataBase->execute($sqlGetAll)){
