@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Formulario 1</title>
+    <meta name="description" content="Ejercicio de Javascript, Formulario">
+    <link rel="shortcut icon" type="image/png" href="form.png" />
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro|Istok+Web" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>FORMULARIO DE REGISTRO</h1>
+
+        <form id="formulario1" action="envio.html">
+            <input type="text" id="nombre" placeholder="Nombre" /> <span id="aviso1">*</span>
+            <span id="errorNombre" class="nombre"> </span>
+            <br><br>
+
+            <div class="sexo-box">
+                <label for="sexo-box">Elige tu sexo</label><span id="aviso2"> *</span><br><br>
+                <input type="radio" name="sexo" value="Hombre"> Hombre<br>
+                <input type="radio" name="sexo" value="Mujer"> Mujer<br>
+                <input type="radio" name="sexo" value="Otros"> Otros<br>
+            </div>
+
+
+            <br><br>
+            <span class="error">*</span><span> Este formulario contiene campos obligatorios</span>
+            <div class="botones">
+                <input type="submit" id="enviar" value="CREAR CUENTA" />
+                <input type="button" id="borrar" value="CANCELAR" />
+            </div>
+        </form>
+
+    </div>
+</body>
+<footer>
+    <script type="text/javascript" src="script.js"></script>
+</footer>
+
+</html>
