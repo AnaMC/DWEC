@@ -1,8 +1,26 @@
 /*
 
 Ejercicio  3:  
-BibliotecaTenemos  tres  tipos  de  medios:  libros,  CDs  y  películas.  Debes  crear  una  clase  principal  llamada  Media  con  tres  subclases:  Libro,  Película  y  CD.  Estas  tres  subclases  tienen  las  siguientes  propiedades  y métodos: 
-    LibrosPropiedades: autor(string),titulo(string),paginas(number),prestado(boolean,inicialmentefalse),  y  valoraciones(array,  inicialmentevacío)Getters:  todas  las  propiedades  tienen  un  getterMétodos:.getMediaValoraciones(),.cambiarEstadoPrestado()y  .addValoracion()PelículasPropiedades:director(string),titulo(string),duracion(number),prestado(boolean,  inicialmentefalse),  y  valoraciones(array,  inicialmentevacío)Getters:  todas  las  propiedades  tienen  un  getterMétodos:.  getMediaValoraciones(),.  cambiarEstadoPrestado()  y  .  addValoracion()CDPropiedades:artista(string),titulo(string),prestado(boolean,  inicialmentefalse),  valoraciones(array,  inicialmentevacío)  y  canciones(array  destrings)Getters:  todas  las  propiedades  tienen  un  getterMétodos:.  getMediaValoraciones(),.  cambiarEstadoPrestado()  y.  addValoracion()A  continuación  crea    una  instancia  de  cada  tipo  de  objeto  y  prueba  los  distintos  métodos  y  propiedades.Comprueba  al  añadir  una  valoraciónque  esté  entre  1  y  5Añade  más  propiedades  a  cada  clase.  Por  ejemplo,  añade  un  método  llamado  barajar  a  la  clase  CD  que  devuelve  un  array  ordenado  aleatoriamente  de  todas  las  canciones  de  la  propiedad  canciones.Crea  una  clase  llamada  Catálogo  que  mantiene  todos  los  items  Media  de  la  biblioteca
+
+BibliotecaTenemos  tres  tipos  de  medios:  libros,  CDs  y  películas.  
+
+Debes  crear  una  clase  principal  llamada  Media  con  tres  subclases:  Libro,  Película  y  CD.  
+
+Estas  tres  subclases  tienen  las  siguientes  propiedades  y métodos: 
+    
+Libros Propiedades: autor(string),titulo(string),paginas(number),prestado(boolean,inicialmentefalse),  y  valoraciones(array,  inicialmentevacío)
+    Getters:  todas  las  propiedades  tienen  un  getter
+    Métodos:.getMediaValoraciones(),.cambiarEstadoPrestado()y  .addValoracion()PelículasPropiedades:director(string),titulo(string),duracion(number),prestado(boolean,  inicialmentefalse),  y  valoraciones(array,  inicialmentevacío)
+    
+    Getters:  todas  las  propiedades  tienen  un  getter
+    Métodos:.  getMediaValoraciones(),.  cambiarEstadoPrestado()  y  .  addValoracion()CDPropiedades:artista(string),titulo(string),prestado(boolean,  inicialmentefalse),  valoraciones(array,  inicialmentevacío)  y  canciones(array  destrings)
+    
+    Getters:  todas  las  propiedades  tienen  un  getter
+    Métodos:.  getMediaValoraciones(),.  cambiarEstadoPrestado()  y.  addValoracion()A  continuación  crea    una  instancia  de  cada  tipo  de  objeto  y  prueba  los  distintos  métodos  y  propiedades.
+
+Comprueba  al  añadir  una  valoraciónque  esté  entre  1  y  Añade  más  propiedades  a  cada  clase.  
+Por  ejemplo,  añade  un  metodo  llamado  barajar  a  la  clase  CD  que  devuelve  un  array  ordenado  aleatoriamente  de  todas  las  canciones  de  la  propiedad  canciones. 
+Crea  una  clase  llamada  Catálogo  que  mantiene  todos  los  items  Media  de  la  biblioteca
 
 */
 
@@ -24,6 +42,8 @@ class Media {
     get valoraciones() {
         return this.valoraciones;
     }
+
+//Los metodos se heredan automaticamente
 
     getMediaValoraciones() {
         var totalValoraciones = 0;
@@ -52,7 +72,7 @@ class Media {
 
 class Libros extends Media {
     contruct(autor, titulo, paginas, prestado, valoraciones) {
-        super(titulo, prestado, valoraciones); // Las que hereda -> con super;
+        super(titulo, prestado, valoraciones); // La llamda al super constuctor para que se cree
         this.autor = autor;
         this.paginas = paginas;
     }
