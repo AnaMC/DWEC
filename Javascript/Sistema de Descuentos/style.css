@@ -1,0 +1,30 @@
+#header{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#resultado {
+    font-size: 200%;
+}
+
+#main{
+    width: 328px;
+    display: flex;
+    padding: 10px;
+    align-items: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+#resultado{
+    font-size: 23px;
+    font-family: sans-serif;
+}
