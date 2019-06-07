@@ -1,0 +1,23 @@
+html, body{
+    height: auto;
+    width: 99%;
+}
+
+.wrapper{
+    margin: 0 auto;
+    width: 620px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: space-around;
+}
+
+.img{
+    height: 100px;
+    width: 100px;
+}
+
+#grande{
+    height: 570px;
+    width: 620px; 
+}
