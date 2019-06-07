@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Coordenadas</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC722PuQhvrQjsRUMgITtjwtmhZQ7XIJmQ&libraries=places"></script>
+</head>
+
+<body>
+    <div id="div-info">
+        <h1>Mi Ubicación</h1>
+        <p id="info"></p>
+        
+    </div>
+    <div id="destinos">
+        <h1>Selecciona un destino</h1>
+        <br>
+        <div class="lista-destinos">
+            <span class="destino boton" id="alhambra" data-longitud="-3.5899900" data-latitud="37.1768900">Alhambra</span>
+            <br>
+            <br>
+            <span class="destino boton" id="carmen" data-longitud="-3.58891" data-latitud="37.17387">Carmen de los Mártires</span>
+            <br>
+            <br>
+            <span class="destino boton" id="cementerio" data-longitud="-3.578661" data-latitud="37.170713">Cementerio Granada</span> <br>
+        </div>
+        <p id = "datos_des"></p>
+        <p id="distancia"> <p>
+    </div>
+    <div class="mapa" id="mapa"></div>
+</body>
+<footer>
+    <script src="script.js"></script>
+</footer>
+
+</html>
